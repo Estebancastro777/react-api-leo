@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./App.css"
-import Index from '@/Index'
+
+import {router} from '@/router/Index'
+import { RouterProvider } from "react-router-dom"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Index />
+    <RouterProvider router = {router}/>
   </React.StrictMode>,
 )
