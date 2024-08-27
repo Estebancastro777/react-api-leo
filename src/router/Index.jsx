@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Home from "@/routes/Home";
 import Electronics from "@/routes/Electronics";
-import Jewelery from "@/routes/Jewelery";
+import Jewelry from "@/routes/Jewelry";
 import MensClothing from "@/routes/MensClothing";
 import WomensClothing from "@/routes/WomensClothing";
 
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
                 element: <Electronics/>,
             },
             {
-                path:"/Jewerely",
-                element: <Jewelery/>,
+                path:"/Jewelry",
+                element: <Jewelry/>,
             },
             {
                 path:"/MensClothing",

@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import { Outlet, useNavigation } from "react-router-dom";
 
 const LayoutPublic = () => {
@@ -8,12 +9,10 @@ const LayoutPublic = () => {
         <>
             <NavBar />
                 <main className="container">
-                    {navigation.state === "loading" && (
-                        <p className="">Loading...</p>
-                    )}
+                    {navigation.state === "loading" && <p className="">Loading...</p>}
                     <Outlet />
                 </main>
-            <footer className="text-center">footer</footer>
+            <Footer/>
         </>
     )
 }

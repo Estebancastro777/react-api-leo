@@ -1,19 +1,19 @@
 import IconFav from "@/icons/IconFav";
+
 import { useFetch } from "@/hooks/useFetch";
-import { useCart } from "@/hooks/useCart";
+import {useCart} from "@/hooks/useCart"
 import { useFav } from "@/hooks/useFav";
 
-const WomensClothing =()=>{
+const Jewelry =()=>{
     const {data: products} = useFetch("https://fakestoreapi.com/products")
-    const filterProducts = products?.filter (product=>product.category === "women's clothing")
+    const filterProduct = products?.filter(product=>product.category==="jewelery")
 
     const {addToCart} = useCart()
     const {addToFav} = useFav()
 
     return (
-
         <section className="cursive grid grid-cols-2 gap-4 md:ml-[19%] md:flex md:flex-wrap md:gap-4">
-            {filterProducts?.map((products) => (
+            {filterProduct?.map((products) => (
                 <div className="flex flex-col justify-between h-82 w-52 md:mx-auto mx-auto p-5 rounded-xl gap-10 border-t-2 bg-slate-100 hover:border-2 cursor-pointer" key={products.id}>
                     <img className="h-auto" key={products.image} src={products.image} alt="product" />
                     <div>
@@ -32,4 +32,4 @@ const WomensClothing =()=>{
     )
 }
 
-export default WomensClothing
+export default Jewelry

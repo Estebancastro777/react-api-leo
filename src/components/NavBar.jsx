@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import IconCart from "@/icons/IconCart";
 import IconMenu from "@/icons/IconMenu";
 import IconClose from "@/icons/IconClose";
-// import CartComponents from "@/components/CartComponents";
+import CartComponents from "@/components/CartComponents";
+import IconFav from "@/icons/IconFav";
+import FavComponents from "@/components/FavComponents";
 
 
 const NavBar = () => {
@@ -18,6 +20,10 @@ const NavBar = () => {
     const handleCloseMenu = () => {
         setIsOpenMenu(false);
     };
+
+    const [openCart, setIsOpenCart] = useState(false)
+
+    const [openFav, setIsOpenFav] = useState(false)
 
 
     return (
@@ -40,7 +46,7 @@ const NavBar = () => {
                         <span className="mt-1 transition-all duration-700 group-hover:bg-slate-700 h-2"></span>
                     </li>
                     <li className="group grid col-span-1">
-                        <Link to="/Jewerely">Jewerely</Link>
+                        <Link to="/Jewelry">Jewelry</Link>
                         <span className="mt-1 transition-all duration-700 group-hover:bg-slate-700 h-2"></span>
                     </li>
                     <li className="group grid col-span-1">
@@ -52,12 +58,17 @@ const NavBar = () => {
                         <span className="mt-1 transition-all duration-700 group-hover:bg-slate-700 h-2"></span>
                     </li>
             </nav>
-                <div>
-                    <button className="mt-1">
+                <div className="flex gap-10 mb-3">
+                    <button onClick={()=>setIsOpenCart(!openCart)} className="mt-1">
                         <IconCart />
                     </button>
+                { openCart && <CartComponents/> }
+                
+                    <button onClick={()=>setIsOpenFav(!openFav)} className="mt-1">
+                        <IconFav />
+                    </button>
+                { openFav && <FavComponents/> }
                 </div>
-                {/* <CartComponents/>     */}
         </header>
         
     )
