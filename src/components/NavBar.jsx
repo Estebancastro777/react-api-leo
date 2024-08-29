@@ -28,14 +28,18 @@ const NavBar = () => {
 
     return (
         
-        <header className="shadow-lg my-8 pb-6 flex justify-evenly cursive font-bold text-gray-500">
+        <header className={`w-full bg-white top-0 shadow-lg mb-8 py-6 flex justify-evenly cursive font-bold text-gray-500
+            ${isOpenMenu
+                ? "h-full"
+                : "fixed"
+            }`}>
         <button className="md:hidden" onClick={handleOpenMenu}>
             <IconMenu />
         </button>
         <h1 className="text-3xl"><Link to="/">STORE API</Link></h1>
             <nav className={`md:flex mt-1 gap-6 ${
                 isOpenMenu
-                ?"absolute z-10 flex flex-col top-0 left-0 shadow-md bg-white h-full p-8"
+                ?"absolute z-50 flex flex-col top-0 left-0 shadow-md bg-white h-full p-8"
                 :"hidden"
             }`}>
                     <div className="md:hidden mb-8 cursor-pointer" onClick={handleCloseMenu}>

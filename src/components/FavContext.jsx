@@ -13,7 +13,7 @@ export function FavProvider({ children }) {
             const newFav = structuredClone(fav)
             newFav[productInFavIndex].quantity += 1
             setFav(newFav)
-        } 
+        }
         else 
         {
         setFav(prevState =>([

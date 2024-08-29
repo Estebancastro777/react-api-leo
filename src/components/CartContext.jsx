@@ -46,11 +46,22 @@ export function CartProvider({ children }) {
         }
     }
 
+    const updateQuantity = (productId, newQuantity) => {
+        const productInCartIndex = cart.findIndex(item => item.id === productId);
+
+        if (productInCartIndex >= 0 && newQuantity > 0) {
+            const newCart = structuredClone(cart);
+            newCart[productInCartIndex].quantity = newQuantity;
+            setCart(newCart);
+        }
+    };
+
     return(
         <CartContext.Provider value={{
             cart,
             addToCart,
             ClearCart,
+            updateQuantity,
             removeFromCart,
         }}
         >
